@@ -3,6 +3,7 @@ package com.pluralsight.SakilaSpringBoot.data;
 import com.pluralsight.SakilaSpringBoot.model.Actor;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,12 +20,18 @@ public class ActorDaoInMemory implements ActorDao {
     private int nextId = 1;
 
 
+
     public ActorDaoInMemory() {
         this.actors = new ArrayList<>();
     }
 
     @Override
     public List<Actor> getAll() {
+        actors.add(new Actor(1, "Tom", "Hanks",LocalDateTime.now()));
+        actors.add(new Actor(2, "Meryl", "Streep", LocalDateTime.now()));
+        actors.add(new Actor(3, "Denzel", "Washington", LocalDateTime.now()));
+        actors.add(new Actor(4, "Viola", "Davis", LocalDateTime.now()));
+        actors.add(new Actor(5, "Leonardo", "DiCaprio", LocalDateTime.now()));
         return actors;
     }
 
